@@ -7,7 +7,25 @@
 		<key>Assistance.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>2</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>1574000A2490AD3A009F3BFE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1574FFE42490AD3A009F3BFE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1574FFFF2490AD3A009F3BFE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

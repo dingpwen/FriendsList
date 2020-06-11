@@ -7,8 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AFNetworking.h>
+#import "Model/FriendModel.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UITableViewController<UITableViewDelegate, UITableViewDataSource, FriendDelegate>{
+
+}
+
+@property (nonatomic,strong) FriendModel *model;
 
 
 @end
