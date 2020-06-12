@@ -26,6 +26,7 @@
     [self loadData];
     //self.view.backgroundColor = [UIColor colorWithRed:255 green:134 blue:126 alpha:1.0];
     [self creatDownBtn];
+    //self.navigationItem.title
 }
 
 - (void)initTableView{
