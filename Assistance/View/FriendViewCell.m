@@ -26,6 +26,16 @@
     return self;
 }
 
+- (void)setFrame:(CGRect)frame{
+    
+    NSLog(@"%p.frame = %@  frame = %@",self,NSStringFromCGRect(self.frame),NSStringFromCGRect(frame));
+    if (self.frame.size.height != frame.size.height) {
+        frame.origin.y += 10;
+        frame.size.height -= 10;
+    }
+    [super setFrame:frame];
+}
+
 - (void)showImageWithData:(NSData *)imageData{
     UIImage *image = [UIImage imageWithData:imageData];
     if(!image) {

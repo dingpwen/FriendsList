@@ -11,10 +11,14 @@
 #import "Model/FriendModel.h"
 
 @interface ViewController : UITableViewController<UITableViewDelegate, UITableViewDataSource, FriendDelegate>{
-
+    UIButton *addBtn;
+    int kScreenHeight;
+    int kScreenWidth;
+    int btnY;
 }
 
 @property (nonatomic,strong) FriendModel *model;
+@property (strong, nonatomic) IBOutlet UIRefreshControl *spinner;
 
 
 @end

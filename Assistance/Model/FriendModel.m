@@ -96,9 +96,9 @@
     });
 }
 
-- (void)addOrRemoveFriend:(NSString *)friendToken catigory:(NSInteger)category type:(NSInteger)type{
+- (void)addOrRemoveFriend:(NSString *)friendToken type:(NSInteger)type{
     NSString *url = (type == 1)?friendAddUrl:friendDelUrl;
-    NSString *token = getUserToken(false);
+    NSString *token = getUserToken(true);
     NSDictionary *params = @{selfTokenKey:token, goalTokenKey:friendToken};
     __block NSString *bToken = token;
     [manager POST:url parameters:params headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {

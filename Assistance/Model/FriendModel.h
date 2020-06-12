@@ -20,7 +20,7 @@
 @property (nonatomic,readonly, strong) NSArray *dataSource;
 
 - (void)loadData:(NSString *)token;
-- (void)addOrRemoveFriend:(NSString *)friendToken catigory:(NSInteger)category type:(NSInteger)type;
+- (void)addOrRemoveFriend:(NSString *)friendToken type:(NSInteger)type;
 
 - (FriendEntity *)itemWithIndexPath:(NSInteger)row;
 
