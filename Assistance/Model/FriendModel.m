@@ -11,19 +11,18 @@
 
 @implementation FriendModel
 
--(instancetype)int{
+-(instancetype)init{
+    self = [super init];
     NSMutableArray *array = [NSMutableArray array];
     _dataSource = array;
-    
+    manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     return self;
 }
 
 - (void)loadData:(NSString *)token{
     NSString *url = friendListUrl;
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    [params setObject:token forKey:@"token"];
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    NSDictionary *params = @{selfTokenKey:token};
     //manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     [manager GET:url parameters:params headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"GET:%@", responseObject);
@@ -40,7 +39,7 @@
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [self loadError:error];
+        [self netError:error];
     }];
     //NSMutableArray *array = [NSMutableArray array];
     //FriendEntity *entity = [FriendEntity alloc];
@@ -68,7 +67,7 @@
     _dataSource = array;
 }
 
-- (void)loadError:(NSError *) error{
+- (void)netError:(NSError *) error{
     NSLog(@"error:%@", error);
 }
 
@@ -100,8 +99,18 @@
 - (void)addOrRemoveFriend:(NSString *)friendToken catigory:(NSInteger)category type:(NSInteger)type{
     NSString *url = (type == 1)?friendAddUrl:friendDelUrl;
     NSString *token = getUserToken(false);
-    
-    //AFNetworking call
+    NSDictionary *params = @{selfTokenKey:token, goalTokenKey:friendToken};
+    __block NSString *bToken = token;
+    [manager POST:url parameters:params headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"add response:%@", responseObject);
+        NSDictionary *dic = (NSDictionary *)responseObject;
+        NSInteger status = [dic[@"status"] integerValue];
+        if(status == 200) {
+            [self loadData:bToken];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [self netError:error];
+    }];
 }
 
 @end

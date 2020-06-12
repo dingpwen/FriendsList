@@ -13,6 +13,7 @@
 @protocol FriendDelegate;
 
 @interface FriendModel : NSObject{
+    AFHTTPSessionManager *manager;
 }
 
 @property (nonatomic, weak) id<FriendDelegate> delegate;

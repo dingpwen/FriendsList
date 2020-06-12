@@ -12,6 +12,9 @@
 NSString *const friendListUrl = @"http://172.16.200.206:5000/friend/list";
 NSString *const friendAddUrl = @"http://172.16.200.206:5000/friend/add";
 NSString *const friendDelUrl = @"http://172.16.200.206:5000/friend/delete";
+NSString *const goalTokenKey = @"goal_token";
+NSString *const selfTokenKey = @"token";
+
 static NSString *const tokenKey = @"userToken";
 static NSString *const defautToken = @"28AGS15pRCVkuiO3ZYz7lWG+zBUEIHHxS3kjHqdcyd4=";
 

@@ -12,6 +12,8 @@
 FOUNDATION_EXPORT NSString *const friendListUrl;
 FOUNDATION_EXPORT NSString *const friendAddUrl;
 FOUNDATION_EXPORT NSString *const friendDelUrl;
+FOUNDATION_EXPORT NSString *const goalTokenKey;
+FOUNDATION_EXPORT NSString *const selfTokenKey;
 
 extern NSString *getUserToken(BOOL generated);
 extern void saveUserToken(NSString *token);
