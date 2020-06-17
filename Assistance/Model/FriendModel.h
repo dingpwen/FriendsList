@@ -21,6 +21,7 @@
 
 - (void)loadData:(NSString *)token;
 - (void)addOrRemoveFriend:(NSString *)friendToken type:(NSInteger)type;
+- (void)addUser:(NSString *)token;
 
 - (FriendEntity *)itemWithIndexPath:(NSInteger)row;
 
@@ -30,6 +31,7 @@
 @protocol FriendDelegate<NSObject>
 
 - (void)loadComplete;
+- (void)loadError:(NSString *)errorMessage;
 - (void)reloadByRow:(NSInteger)row;
 
 @end

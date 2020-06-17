@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "View/FriendViewCell.h"
 #import "Utils/Constants.h"
+#import "Controller/CameraViewController.h"
 
 @interface ViewController ()
 
@@ -42,6 +43,8 @@
     [self.tableView addSubview:self.spinner];
     [self.tableView sendSubviewToBack:self.spinner];
      [self.refreshControl addTarget:self  action:@selector(handleRefresh:)  forControlEvents:UIControlEventValueChanged];
+    
+    self.tableView.mj_footer.hidden = true;
 }
 
 
@@ -72,6 +75,7 @@
     } else {
         cell.detailTextLabel.text = entity.number;
     }
+    //[cell.imageView sd_setImageWithURL:[NSURL URLWithString:entity.imageUrl]];
     
     [cell showImageWithData:entity.imageData];
     NSLog(@"row:%ld", indexPath.row);
@@ -88,6 +92,11 @@
     return _model.dataSource.count;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
+
+
 - (void)loadComplete{
     dispatch_async(dispatch_get_main_queue(), ^{
         NSLog(@"reload:%@", _model.dataSource);
@@ -97,11 +106,18 @@
     });
 }
 
+- (void)loadError:(NSString *)errorMessage{
+    if(errorMessage) {
+        [MBProgressHUD showError:errorMessage toview:self.view];
+    }
+}
+
 -(void)reloadByRow:(NSInteger)row{
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:0];
     [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath,nil] withRowAnimation:UITableViewRowAnimationNone];
 }
 
+#pragma mark add a flow button
 -(void)creatDownBtn{
     kScreenWidth = self.view.bounds.size.width;
     kScreenHeight = self.view.bounds.size.height;
@@ -131,12 +147,35 @@
     NSString *token = getUserToken(false);
     if(token.length == 0) {
         token = getUserToken(true);
+        saveUserToken(token);
+        [_model addUser:token];
+    } else {
+        [_model loadData:token];
     }
-    [_model loadData:token];
 }
 
 - (void)addFriend{
-    NSString *friendToken = @"dhdhdhdf";
+    NSString *friendToken = @"";
     [_model addOrRemoveFriend:friendToken type:1];
 }
+
+- (IBAction)gotoDelete:(UIBarButtonItem *)sender {
+    NSLog(@"gotoDelete");
+    if (self.tableView.editing == NO) {
+        self.tableView.editing = YES;
+        sender.title = @"Finish";
+    }else if (self.tableView.editing == YES) {
+        self.tableView.editing = NO;
+        sender.title = @"Edit";
+    }
+}
+- (IBAction)delete:(UIBarButtonItem *)sender {
+    NSLog(@"delete");
+}
+
+- (IBAction)gotoCamera:(id)sender {
+    CameraViewController *controller = [[CameraViewController alloc]init];
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
 @end

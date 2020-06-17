@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <AFNetworking.h>
+#import "MBProgressHUD/MBProgressHUD+PO.h"
+#import <MJRefresh.h>
+//#import <SDWebImage.h>
 #import "Model/FriendModel.h"
 
 @interface ViewController : UITableViewController<UITableViewDelegate, UITableViewDataSource, FriendDelegate>{
@@ -16,6 +19,7 @@
     int kScreenWidth;
     int btnY;
 }
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *mDelete;
 
 @property (nonatomic,strong) FriendModel *model;
 @property (strong, nonatomic) IBOutlet UIRefreshControl *spinner;

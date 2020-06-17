@@ -40,6 +40,9 @@
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [self netError:error];
+        if(_delegate){
+            [_delegate loadError:@"load error"];
+        }
     }];
     //NSMutableArray *array = [NSMutableArray array];
     //FriendEntity *entity = [FriendEntity alloc];
@@ -110,6 +113,22 @@
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [self netError:error];
+    }];
+}
+
+- (void)addUser:(NSString *)token{
+    NSString * url = userAddUrl;
+    NSDictionary *params = @{selfTokenKey:token, @"category": @"2"};
+    [manager POST:url parameters:params headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"add response:%@", responseObject);
+        NSDictionary *dic = (NSDictionary *)responseObject;
+        NSInteger status = [dic[@"status"] integerValue];
+        if(status != 200) {
+            saveUserToken(@"");
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [self netError:error];
+        saveUserToken(@"");
     }];
 }
 

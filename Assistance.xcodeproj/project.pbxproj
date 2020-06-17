@@ -21,6 +21,9 @@
 		1574FFF52490AD3A009F3BFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1574FFF42490AD3A009F3BFE /* Assets.xcassets */; };
 		1574FFF82490AD3A009F3BFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1574FFF62490AD3A009F3BFE /* LaunchScreen.storyboard */; };
 		1574FFFB2490AD3A009F3BFE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1574FFFA2490AD3A009F3BFE /* main.m */; };
+		15796BE12497782400ECC0DA /* MBProgressHUD+PO.m in Sources */ = {isa = PBXBuildFile; fileRef = 15796BE02497782400ECC0DA /* MBProgressHUD+PO.m */; };
+		15796BE524989D3200ECC0DA /* CameraPrivew.m in Sources */ = {isa = PBXBuildFile; fileRef = 15796BE424989D3200ECC0DA /* CameraPrivew.m */; };
+		15796BE92498B61200ECC0DA /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15796BE82498B61200ECC0DA /* CameraViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +69,12 @@
 		1574FFF72490AD3A009F3BFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1574FFF92490AD3A009F3BFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1574FFFA2490AD3A009F3BFE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		15796BDF2497782400ECC0DA /* MBProgressHUD+PO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+PO.h"; sourceTree = "<group>"; };
+		15796BE02497782400ECC0DA /* MBProgressHUD+PO.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+PO.m"; sourceTree = "<group>"; };
+		15796BE324989D3200ECC0DA /* CameraPrivew.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraPrivew.h; sourceTree = "<group>"; };
+		15796BE424989D3200ECC0DA /* CameraPrivew.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraPrivew.m; sourceTree = "<group>"; };
+		15796BE72498B61200ECC0DA /* CameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		15796BE82498B61200ECC0DA /* CameraViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		949D0F163B9A0F76EF863925 /* libPods-Assistance.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Assistance.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3E4550CE92D3F650DF52430 /* Pods-Assistance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Assistance.debug.xcconfig"; path = "Target Support Files/Pods-Assistance/Pods-Assistance.debug.xcconfig"; sourceTree = "<group>"; };
 		E895AC5B409D4E600ECAAA42 /* Pods-Assistance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Assistance.release.xcconfig"; path = "Target Support Files/Pods-Assistance/Pods-Assistance.release.xcconfig"; sourceTree = "<group>"; };
@@ -169,6 +178,9 @@
 		1574FFE72490AD3A009F3BFE /* Assistance */ = {
 			isa = PBXGroup;
 			children = (
+				15796BE62498B5E800ECC0DA /* Controller */,
+				15796BE224989CD700ECC0DA /* camera */,
+				15796BDB2497767200ECC0DA /* MBProgressHUD */,
 				1574002E2490D377009F3BFE /* Model */,
 				157400212490BAC8009F3BFE /* View */,
 				1574001D2490B22A009F3BFE /* Utils */,
@@ -184,6 +196,33 @@
 				1574FFF12490AD3A009F3BFE /* Assistance.xcdatamodeld */,
 			);
 			path = Assistance;
+			sourceTree = "<group>";
+		};
+		15796BDB2497767200ECC0DA /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				15796BDF2497782400ECC0DA /* MBProgressHUD+PO.h */,
+				15796BE02497782400ECC0DA /* MBProgressHUD+PO.m */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		15796BE224989CD700ECC0DA /* camera */ = {
+			isa = PBXGroup;
+			children = (
+				15796BE324989D3200ECC0DA /* CameraPrivew.h */,
+				15796BE424989D3200ECC0DA /* CameraPrivew.m */,
+			);
+			path = camera;
+			sourceTree = "<group>";
+		};
+		15796BE62498B5E800ECC0DA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				15796BE72498B61200ECC0DA /* CameraViewController.h */,
+				15796BE82498B61200ECC0DA /* CameraViewController.m */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		A7835A9EDF4C51C258E7B440 /* Frameworks */ = {
@@ -232,6 +271,7 @@
 				1574FFE12490AD3A009F3BFE /* Sources */,
 				1574FFE22490AD3A009F3BFE /* Frameworks */,
 				1574FFE32490AD3A009F3BFE /* Resources */,
+				933D7999FED433D110D0B220 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -333,6 +373,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		933D7999FED433D110D0B220 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Assistance/Pods-Assistance-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Assistance/Pods-Assistance-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D7797D7F039E4A1BBB1CABE9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -367,9 +425,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				157400352491D785009F3BFE /* Constants.m in Sources */,
+				15796BE12497782400ECC0DA /* MBProgressHUD+PO.m in Sources */,
 				157400342490D69E009F3BFE /* FriendModel.m in Sources */,
+				15796BE524989D3200ECC0DA /* CameraPrivew.m in Sources */,
 				157400312490D3B3009F3BFE /* FriendEntity.m in Sources */,
 				1574FFED2490AD3A009F3BFE /* ViewController.m in Sources */,
+				15796BE92498B61200ECC0DA /* CameraViewController.m in Sources */,
 				1574FFEA2490AD3A009F3BFE /* AppDelegate.m in Sources */,
 				1574FFFB2490AD3A009F3BFE /* main.m in Sources */,
 				1574002D2490BD3C009F3BFE /* FriendViewCell.m in Sources */,
